@@ -1,0 +1,14 @@
+{% extends "encyclopedia/layout.html" %} {% block body %}
+<div class="container">
+  {%if error%}
+  <div style="color: red" class="text-center">{{error}}</div>
+  {%endif%}
+  <form class="" action="{% url 'save' %}" method="post">
+    {% csrf_token %}
+    <h1>Edit page</h1>
+    {{form.non_field_errors}} {{form.title}} {{form.subject}}
+    <button type="submit" class="btn btn-primary">Save</button>
+  </form>
+</div>
+
+{% endblock %}
